@@ -1,0 +1,8 @@
+Arquivo com infomrações sobre diretórios e subdiretórios
+
+\schema
+Pasta com o esquema físico de banco de dados
+
+\Documentação
+Pasta com os documentos de auxilio para a realização do trabalho. Nela se encontra o pdf com as instruções para realização do trabalho, o arquivo
+com as definições das ferramentas que serão utilizadas.
