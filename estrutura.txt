@@ -6,3 +6,6 @@ Pasta com o esquema físico de banco de dados
 \Documentação
 Pasta com os documentos de auxilio para a realização do trabalho. Nela se encontra o pdf com as instruções para realização do trabalho, o arquivo
 com as definições das ferramentas que serão utilizadas.
+
+\Acessa IFSP
+Pasta com os janelas php e html do projeto.
