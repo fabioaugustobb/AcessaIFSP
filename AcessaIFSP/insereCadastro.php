@@ -14,7 +14,7 @@ $telCel = $_POST['telCel'];
 $mail = $_POST['mail'];
 
 
-$dbh->exec("INSERT INTO aluno(prontuario,nome,curso,endereco,cidade,estado,telefone,celular,email,foto) VALUES ($pront,'$nome','$curso','$end','$cid','$estado',$telFix,$telCel,'$mail','')");
+$dbh->exec("INSERT INTO aluno (prontuario,nome,curso,endereco,cidade,estado,telefone,celular,email,foto,cartao) VALUES ($pront,'$nome','$curso','$end','$cid','$estado',$telFix,$telCel,'$mail','','')");
 
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-	require_once('../connection.php');
+	require_once('ConectaBD.php');
 
 	$prontuario        	= $_POST['prontuario'];
 	$nome              	= $_POST['nome'];
@@ -30,3 +30,4 @@
 	}catch(PDOException $e) {
 		echo $e->getMessage();
 	}
+	?>

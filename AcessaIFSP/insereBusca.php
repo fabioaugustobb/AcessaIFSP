@@ -16,8 +16,8 @@ require_once('ConectaBD.php');
 <body>
 
 <div class="container">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state on table rows:</p>            
+  <h2>AcessaIFSP</h2>
+  <p>Busca rápida:</p>            
   <table class="table table-hover">
     <thead>
       <tr>
@@ -29,26 +29,44 @@ require_once('ConectaBD.php');
     <tbody>
       <tr>
          <?php
-          if ( is_int ($_POST['var'] == true ) ) {
-              $pront = $_POST['var'];
-              foreach ($dbh->query("SELECT * FROM aluno where prontuario = $pront") as $linha) {
+         $pront = $_POST['var']; 
+         switch ($pront) {
+             case is_numeric($pront):
+                 foreach ($dbh->query("SELECT * FROM aluno where prontuario = $pront") as $linha) {
                   echo "<td>";
                   echo "{$linha['nome']}" ;
                   echo "</td>";
                   
                   echo "<td>";
-                  echo "{$linha['pront']}";
+                  echo "{$linha['prontuario']}";
                   echo "</td>";
-
 
                   echo "<td>";
-                  echo "{$linha['telFX']}";
+                  echo "{$linha['celular']}";
                   echo "</td>";
+                  
               }
-          } else {
-              $nome = $_POST['var'];
-          }
-          ?>                       
+                 break;
+             case is_string($pront):
+                 foreach ($dbh->query("SELECT * FROM aluno where nome like '$pront'") as $linha) {
+                  
+                  echo "<td>";
+                  echo "{$linha['nome']}" ;
+                  echo "</td>";
+                  
+                  echo "<td>";
+                  echo "{$linha['prontuario']}";
+                  echo "</td>";
+
+                  echo "<td>";
+                  echo "{$linha['celular']}";
+                  echo "</td>";
+                  
+                  }
+                  
+                 break;
+         }
+         ?>                     
       </tr>
     </tbody>
   </table>
