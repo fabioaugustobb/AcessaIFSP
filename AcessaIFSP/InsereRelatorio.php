@@ -1,5 +1,8 @@
 <?php
+require_once('navBar.php');
 require_once('ConectaBD.php');
+ $data_1 = $_GET['data_1'];	
+ $data_2 = $_GET['data_2'];
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +30,12 @@ require_once('ConectaBD.php');
       </tr>
     </thead>
     <tbody>
-      <tr>
-         <?php
-		 
-				foreach ($dbh->query("select a.prontuario, a.nome,a.curso, r.hora
-									   from aluno as a inner join registro as r on a.prontuario = r.dado
-                                       ORDER BY r.id DESC LIMIT 1") as $linha) {
+    
+ <?php
+			if($data_2 >= $data_1){
+				foreach ($dbh->query("SELECT a.prontuario, a.nome,a.curso, r.hora from aluno as a inner join registro as r  
+				WHERE r.hora>= '$data_1' AND r.hora<= '$data_2';") as $linha) {
+				  echo '<tr>';
                   echo "<td>";
                   echo "{$linha['nome']}" ;
                   echo "</td>";
@@ -47,15 +50,24 @@ require_once('ConectaBD.php');
 				  echo "<td>";
                   echo "{$linha['hora']}";
                   echo "</td>";
-                  
-              }
-			  
+				  echo '</tr>';
+				  }
+			}else{
+				echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Data Inválida!</font></c></p>";
+			}
 		 
 ?>                     
-      </tr>
+      
     </tbody>
   </table>
 </div>
+<form class="form-horizontal" role="form" name="Cadastro" action="relatorio.php" method="get" >
+	<div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Realizar nova consulta</button>
+      </div>
+    </div>
+  </form>
 
 </body>
 </html>

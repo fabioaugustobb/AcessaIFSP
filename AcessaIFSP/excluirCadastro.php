@@ -1,5 +1,9 @@
 <?php
+require_once('navBar.php');
 require_once('ConectaBD.php');
+
+$pront = $_POST['pront'];	
+
 ?>
 
 <!DOCTYPE html>
@@ -27,35 +31,28 @@ require_once('ConectaBD.php');
       </tr>
     </thead>
     <tbody>
-      <tr>
-         <?php
-		 
-				foreach ($dbh->query("select a.prontuario, a.nome,a.curso, r.hora
-									   from aluno as a inner join registro as r on a.prontuario = r.dado
-                                       ORDER BY r.id DESC LIMIT 1") as $linha) {
-                  echo "<td>";
-                  echo "{$linha['nome']}" ;
-                  echo "</td>";
-                  
-                  echo "<td>";
-                  echo "{$linha['prontuario']}";
-                  echo "</td>";
-
-                  echo "<td>";
-                  echo "{$linha['curso']}";
-                  echo "</td>";
-				  echo "<td>";
-                  echo "{$linha['hora']}";
-                  echo "</td>";
-                  
-              }
-			  
-		 
+    
+ <?php
+			if($pront != ''){
+				$dbh->query("DELETE FROM `aluno` WHERE prontuario = '$pront';");
+				$dbh->query("Select * FROM `aluno` WHERE prontuario = '$pront';");	
+				echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Exlcusão realizada com sucesso!</font></c></p>";
+				
+				}else{
+				echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Exlcusão não realizada!</font></c></p>";
+				}
 ?>                     
-      </tr>
+      
     </tbody>
   </table>
 </div>
+<form class="form-horizontal" role="form" name="Cadastro" action="busca.php" method="get" >
+	<div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Realizar nova busca</button>
+      </div>
+    </div>
+  </form>
 
 </body>
 </html>
