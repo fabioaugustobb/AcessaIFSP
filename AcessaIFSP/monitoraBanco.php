@@ -36,7 +36,7 @@ require_once('ConectaBD.php');
                             echo "<td>";
                             $avatar = "{$linha['foto']}";
                             //echo "{$linha['foto']}";
-                            echo "<img src=\"$avatar\" />";
+                            echo "<img width=\"60px\" height=\"60px\" src=\"$avatar\" />";
                             echo "</td>";
                             
                             echo "<td>";

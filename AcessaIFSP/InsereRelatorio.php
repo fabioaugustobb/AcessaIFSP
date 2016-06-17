@@ -23,6 +23,7 @@ $data_2 = $_GET['data_2'];
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>foto</th>
                         <th>Nome</th>
                         <th>Prontuario</th>
                         <th>Curso:</th>
@@ -33,9 +34,17 @@ $data_2 = $_GET['data_2'];
 
                     <?php
                     if ($data_2 >= $data_1) {
-                        foreach ($dbh->query("SELECT a.prontuario, a.nome,a.curso, r.hora from aluno as a inner join registro as r  
+                        foreach ($dbh->query("SELECT a.prontuario, a.nome,a.curso, a.foto, r.hora from aluno as a inner join registro as r  
 				WHERE r.hora>= '$data_1' AND r.hora<= '$data_2';") as $linha) {
+
                             echo '<tr>';
+                            
+                            echo "<td>";
+                            $avatar = "{$linha['foto']}";
+                            //echo "{$linha['foto']}";
+                            echo "<img width=\"60px\" height=\"60px\" src=\"$avatar\" />";
+                            echo "</td>";
+
                             echo "<td>";
                             echo "{$linha['nome']}";
                             echo "</td>";

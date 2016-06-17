@@ -21,6 +21,7 @@ require_once('ConectaBD.php');
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Foto</th>
                         <th>Nome</th>
                         <th>Prontuario</th>
                         <th>Telefone Fixo:</th>
@@ -35,6 +36,13 @@ require_once('ConectaBD.php');
                             switch ($pront) {
                                 case is_numeric($pront):
                                     foreach ($dbh->query("SELECT * FROM aluno where prontuario = $pront") as $linha) {
+
+                                        echo "<td>";
+                                        $avatar = "{$linha['foto']}";
+                                        //echo "{$linha['foto']}";
+                                        echo "<img width=\"60px\" height=\"60px\" src=\"$avatar\" />";
+                                        echo "</td>";
+
                                         echo "<td>";
                                         echo "{$linha['nome']}";
                                         echo "</td>";
@@ -50,6 +58,12 @@ require_once('ConectaBD.php');
                                     break;
                                 case is_string($pront):
                                     foreach ($dbh->query("SELECT * FROM aluno where nome like '$pront'") as $linha) {
+
+                                        echo "<td>";
+                                        $avatar = "{$linha['foto']}";
+                                        //echo "{$linha['foto']}";
+                                        echo "<img width=\"60px\" height=\"60px\" src=\"$avatar\" />";
+                                        echo "</td>";
 
                                         echo "<td>";
                                         echo "{$linha['nome']}";
@@ -80,7 +94,7 @@ require_once('ConectaBD.php');
                     </div>
                 </div>
             </form>
-<?php if ($pront != ''): ?>
+            <?php if ($pront != ''): ?>
                 <form class="form-horizontal" role="form" name="Cadastro" action="editarCadastro.php" method="post" >
                     <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
@@ -97,7 +111,7 @@ require_once('ConectaBD.php');
                         </div>
                     </div>
                 </form>
-<?php endif; ?>
+            <?php endif; ?>
         </div>
 
     </body>

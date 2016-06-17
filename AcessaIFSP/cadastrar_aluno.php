@@ -21,11 +21,11 @@ $uploaddir = 'img/avatar/';
 
 $uploadfile = $uploaddir . $_FILES['foto']['name'];
 
-/*if (move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)) {
-    echo "Arquivo Enviado";
+if (move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)) {
+    //echo "Arquivo Enviado";
 } else {
-    echo "Arquivo não enviado";
-}*/
+    //echo "Arquivo não enviado";
+}
 //fim upload de foto
 
 
