@@ -14,12 +14,26 @@ $telFix = $_POST['telFX'];
 $telCel = $_POST['telCel'];
 $mail = $_POST['mail'];
 
+
+
+
+$uploaddir = 'img/avatar/';
+
+$uploadfile = $uploaddir . $_FILES['foto']['name'];
+
+if (move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)){
+echo "Arquivo Enviado";}
+else {echo "Arquivo não enviado";}
+
+
+
+
 if ($pront != '' && $nome != '') {
 
     $sth = $dbh->prepare('INSERT INTO aluno
 		                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
     try {
-        $sth->execute([$pront, $nome, $curso, $end, $cid, $estado, $telFix, $telCel, $mail, '', '']);
+        $sth->execute([$pront, $nome, $curso, $end, $cid, $estado, $telFix, $telCel, $mail, $uploadfile, '']);
     } catch (PDOException $e) {
 
         echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Prontuário Já Cadastrado!</font></c></p>";
