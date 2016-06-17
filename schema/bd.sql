@@ -19,7 +19,7 @@ CREATE TABLE `registro` (
 );
 
 INSERT INTO `aluno` (`prontuario`, `nome`, `curso`, `endereco`, `cidade`, `estado`, `telefone`, `celular`, `email`, `foto`, `cartao`) VALUES
-(1420267, 'Juliano', 'ADS', 'Av. 2', 'Hortolândia', 'SP', '9999-9999', '9999-9999', 'juliano@acessaifsp.com.br', 'img/avatar.jpg', '');
+(1420267, 'Juliano', 'ADS', 'Av. 2', 'Hortolândia', 'SP', '9999-9999', '9999-9999', 'juliano@acessaifsp.com.br', 'img/avatar/juliano.jpg', '');
 
 INSERT INTO `registro` (`id`, `dado`, `hora`) VALUES
 ('', ' 1420267\n', '2016-06-04 14:01:05');
