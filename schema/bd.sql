@@ -10,13 +10,13 @@ CREATE TABLE `aluno` (
   `email` varchar(200) DEFAULT NULL,
   `foto` varchar(300) DEFAULT NULL,
   `cartao` varchar(150) NOT NULL
-) 
+);
 
 CREATE TABLE `registro` (
   `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `dado` varchar(250) NOT NULL,
   `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+);
 
 INSERT INTO `aluno` (`prontuario`, `nome`, `curso`, `endereco`, `cidade`, `estado`, `telefone`, `celular`, `email`, `foto`, `cartao`) VALUES
 (1420267, 'Juliano', 'ADS', 'Av. 2', 'Hortolândia', 'SP', '9999-9999', '9999-9999', 'juliano@acessaifsp.com.br', 'img/avatar.jpg', '');
