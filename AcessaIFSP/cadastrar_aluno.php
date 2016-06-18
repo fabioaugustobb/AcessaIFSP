@@ -13,6 +13,7 @@ $estado = $_POST['estado'];
 $telFix = $_POST['telFX'];
 $telCel = $_POST['telCel'];
 $mail = $_POST['mail'];
+$cartao = $_POST['cartao'];
 
 
 
@@ -35,7 +36,7 @@ if ($pront != '' && $nome != '') {
     $sth = $dbh->prepare('INSERT INTO aluno
 		                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
     try {
-        $sth->execute([$pront, $nome, $curso, $end, $cid, $estado, $telFix, $telCel, $mail, $uploadfile, '']);
+        $sth->execute([$pront, $nome, $curso, $end, $cid, $estado, $telFix, $telCel, $mail, $uploadfile, $cartao]);
     } catch (PDOException $e) {
 
         echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Prontuário Já Cadastrado!</font></c></p>";

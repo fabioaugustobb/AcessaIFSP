@@ -31,7 +31,6 @@ $sql = "SELECT * FROM aluno WHERE prontuario = $pront";
                     </div>
 
 
-
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd">Prontuario:</label>
                         <div class="col-sm-10">          

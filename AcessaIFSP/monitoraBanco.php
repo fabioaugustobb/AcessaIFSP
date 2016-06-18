@@ -30,29 +30,36 @@ require_once('ConectaBD.php');
                 <tbody>
                     <tr>
                         <?php
-                        foreach ($dbh->query("select a.foto, a.prontuario, a.nome,a.curso, r.hora
+                        $banco = $dbh->query("select a.prontuario from aluno as a WHERE a.prontuario = (SELECT dado from registro
+                                       ORDER BY id DESC LIMIT 1)");
+
+                        if (is_bool($banco->fetchColumn())) {
+                            echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Não cadastrado!</font></c></p>";
+                        } else {
+                            foreach ($dbh->query("select a.foto, a.prontuario, a.nome,a.curso, r.hora
 									   from aluno as a inner join registro as r on a.prontuario = r.dado
                                        ORDER BY r.id DESC LIMIT 1") as $linha) {
-                            echo "<td>";
-                            $avatar = "{$linha['foto']}";
-                            //echo "{$linha['foto']}";
-                            echo "<img width=\"60px\" height=\"60px\" src=\"$avatar\" />";
-                            echo "</td>";
-                            
-                            echo "<td>";
-                            echo "{$linha['nome']}";
-                            echo "</td>";
+                                echo "<td>";
+                                $avatar = "{$linha['foto']}";
+                                //echo "{$linha['foto']}";
+                                echo "<img width=\"60px\" height=\"60px\" src=\"$avatar\" />";
+                                echo "</td>";
 
-                            echo "<td>";
-                            echo "{$linha['prontuario']}";
-                            echo "</td>";
+                                echo "<td>";
+                                echo "{$linha['nome']}";
+                                echo "</td>";
 
-                            echo "<td>";
-                            echo "{$linha['curso']}";
-                            echo "</td>";
-                            echo "<td>";
-                            echo "{$linha['hora']}";
-                            echo "</td>";
+                                echo "<td>";
+                                echo "{$linha['prontuario']}";
+                                echo "</td>";
+
+                                echo "<td>";
+                                echo "{$linha['curso']}";
+                                echo "</td>";
+                                echo "<td>";
+                                echo "{$linha['hora']}";
+                                echo "</td>";
+                            }
                         }
                         ?>                     
                     </tr>

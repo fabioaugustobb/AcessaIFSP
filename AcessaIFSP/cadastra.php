@@ -81,14 +81,21 @@ require_once('navBar.php');
                         <input class="form-control" type="text" name="mail" placeholder="Insira a Cidade">
                     </div>
                 </div>                      
-                
-                 <div class="form-group">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Número do Cartão:</label>
+                    <div class="col-sm-10">          
+                        <input class="form-control" type="text" name="cartao" placeholder="Insira o número do Cartão">
+                    </div>
+                </div>	
+
+                <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Foto:</label>
                     <div class="col-sm-10">          
                         <input class="form-control" type="file" name="foto" >
                     </div>
                 </div>                  
-                
+
                 <div class="form-group">        
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default">Cadastrar</button>
