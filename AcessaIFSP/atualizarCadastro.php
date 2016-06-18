@@ -12,9 +12,10 @@ $estado = $_POST['estado'];
 $telFix = $_POST['telFX'];
 $telCel = $_POST['telCel'];
 $mail = $_POST['mail'];
+$cartao = $POST['cartao'];
 $sql = "UPDATE aluno 
           SET nome  = '$nome', curso = '$curso', endereco = '$end',
-		  cidade = '$cid', estado = '$estado', telefone = '$telFix', celular = '$telCel', email = '$mail'
+		  cidade = '$cid', estado = '$estado', telefone = '$telFix', celular = '$telCel', email = '$mail', cartao = '$cartao'
           WHERE prontuario = $pront";
 $total = $dbh->exec($sql);
 ?>

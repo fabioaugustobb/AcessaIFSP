@@ -88,6 +88,13 @@ $sql = "SELECT * FROM aluno WHERE prontuario = $pront";
                         </div>
                     </div>         
 
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Cartão:</label>
+                        <div class="col-sm-10">          
+                            <input class="form-control" type="text" name="cartao" value="<?php echo $linha['cartao'] ?>">
+                        </div>
+                    </div> 
+
                     <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Atualizar</button>
