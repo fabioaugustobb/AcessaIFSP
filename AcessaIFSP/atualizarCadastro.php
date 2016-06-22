@@ -12,10 +12,23 @@ $estado = $_POST['estado'];
 $telFix = $_POST['telFX'];
 $telCel = $_POST['telCel'];
 $mail = $_POST['mail'];
-$cartao = $POST['cartao'];
+$cartao = $_POST['cartao'];
+
+
+$uploaddir = 'img/avatar/';
+
+$uploadfile = $uploaddir . $_FILES['foto']['name'];
+
+if (move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)) {
+    //echo "Arquivo Enviado";
+} else {
+    //echo "Arquivo não enviado";
+}
+//fim upload de foto
+
 $sql = "UPDATE aluno 
           SET nome  = '$nome', curso = '$curso', endereco = '$end',
-		  cidade = '$cid', estado = '$estado', telefone = '$telFix', celular = '$telCel', email = '$mail', cartao = '$cartao'
+		  cidade = '$cid', estado = '$estado', telefone = '$telFix', celular = '$telCel', email = '$mail', foto = '$uploadfile', cartao = '$cartao'
           WHERE prontuario = $pront";
 $total = $dbh->exec($sql);
 ?>

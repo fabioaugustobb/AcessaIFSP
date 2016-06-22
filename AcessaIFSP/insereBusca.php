@@ -25,13 +25,14 @@ require_once('ConectaBD.php');
                         <th>Nome</th>
                         <th>Prontuario</th>
                         <th>Telefone Fixo:</th>
+						<th>Cartão:</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <?php
                         $pront = $_POST['var'];
-                        //$_SESSION["pront"] = $_POST['var'];
+                        
                         if ($pront != '') {
                             switch ($pront) {
                                 case is_numeric($pront):
@@ -54,10 +55,14 @@ require_once('ConectaBD.php');
                                         echo "<td>";
                                         echo "{$linha['celular']}";
                                         echo "</td>";
+										
+										echo "<td>";
+                                        echo "{$linha['cartao']}";
+                                        echo "</td>";
                                     }
                                     break;
                                 case is_string($pront):
-                                    foreach ($dbh->query("SELECT * FROM aluno where nome like '$pront'") as $linha) {
+                                    foreach ($dbh->query("SELECT * FROM aluno where nome like '%$pront%'") as $linha) {
 
                                         echo "<td>";
                                         $avatar = "{$linha['foto']}";
@@ -75,6 +80,10 @@ require_once('ConectaBD.php');
 
                                         echo "<td>";
                                         echo "{$linha['celular']}";
+                                        echo "</td>";
+										
+										echo "<td>";
+                                        echo "{$linha['cartao']}";
                                         echo "</td>";
                                     }
 

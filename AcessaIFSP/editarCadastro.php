@@ -4,7 +4,7 @@ require_once('navBar.php');
 require_once('ConectaBD.php');
 
 $pront = $_POST['pront'];
-$sql = "SELECT * FROM aluno WHERE prontuario = $pront";
+$sql = "SELECT * from aluno WHERE nome LIKE '%$pront%' or prontuario = '$pront'";
 ?>
 
 <html>
@@ -22,7 +22,7 @@ $sql = "SELECT * FROM aluno WHERE prontuario = $pront";
             ?>
             <div class="container">
                 <h2>Acessa IFSP - Editar Cadastro de Aluno </h2>
-                <form class="form-horizontal" role="form" name="Cadastro" action="atualizarCadastro.php" method="post" >
+                <form class="form-horizontal" role="form" name="Cadastro" action="atualizarCadastro.php" method="post" enctype="multipart/form-data" > 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="email">Nome:</label>
                         <div class="col-sm-10">
@@ -70,14 +70,14 @@ $sql = "SELECT * FROM aluno WHERE prontuario = $pront";
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd">Telefone Fixo:</label>
                         <div class="col-sm-10">          
-                            <input class="form-control" type="number" name="telFX" value="<?php echo $linha['telefone'] ?>">
+                            <input class="form-control" type="text" name="telFX" value="<?php echo $linha['telefone'] ?>">
                         </div>
                     </div>         
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd">Telefone Celular:</label>
                         <div class="col-sm-10">          
-                            <input class="form-control" type="number" name="telCel" value="<?php echo $linha['celular'] ?>">
+                            <input class="form-control" type="text" name="telCel" value="<?php echo $linha['celular'] ?>">
                         </div>
                     </div>         
 
@@ -86,14 +86,21 @@ $sql = "SELECT * FROM aluno WHERE prontuario = $pront";
                         <div class="col-sm-10">          
                             <input class="form-control" type="text" name="mail" value="<?php echo $linha['email'] ?>">
                         </div>
-                    </div>         
-
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">Cartão:</label>
-                        <div class="col-sm-10">          
-                            <input class="form-control" type="text" name="cartao" value="<?php echo $linha['cartao'] ?>">
-                        </div>
                     </div> 
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Cartão:</label>
+						<div class="col-sm-10">          
+                        <input class="form-control" type="text" name="cartao" value="<?php echo $linha['cartao'] ?>">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Foto:</label>
+						<div class="col-sm-10">          
+                        <input class="form-control" type="file" name="foto" >
+						</div>
+					</div> 
 
                     <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">

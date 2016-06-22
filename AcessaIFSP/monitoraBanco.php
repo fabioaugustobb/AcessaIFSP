@@ -24,20 +24,21 @@ require_once('ConectaBD.php');
                         <th>Nome</th>
                         <th>Prontuario</th>
                         <th>Curso:</th>
+						<th>Cartão:</th>
                         <th>Horário de Acesso:</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <?php
-                        $banco = $dbh->query("select a.prontuario from aluno as a WHERE a.prontuario = (SELECT dado from registro
+                        $banco = $dbh->query("select a.prontuario from aluno as a WHERE a.cartao = (SELECT dado from registro
                                        ORDER BY id DESC LIMIT 1)");
 
                         if (is_bool($banco->fetchColumn())) {
                             echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Não cadastrado!</font></c></p>";
                         } else {
-                            foreach ($dbh->query("select a.foto, a.prontuario, a.nome,a.curso, r.hora
-									   from aluno as a inner join registro as r on a.prontuario = r.dado
+                            foreach ($dbh->query("select a.foto, a.prontuario, a.nome,a.curso, r.hora, a.cartao
+									   from aluno as a inner join registro as r on a.cartao = r.dado
                                        ORDER BY r.id DESC LIMIT 1") as $linha) {
                                 echo "<td>";
                                 $avatar = "{$linha['foto']}";
@@ -55,6 +56,9 @@ require_once('ConectaBD.php');
 
                                 echo "<td>";
                                 echo "{$linha['curso']}";
+                                echo "</td>";
+								echo "<td>";
+                                echo "{$linha['cartao']}";
                                 echo "</td>";
                                 echo "<td>";
                                 echo "{$linha['hora']}";

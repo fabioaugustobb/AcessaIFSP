@@ -64,14 +64,14 @@ require_once('navBar.php');
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Telefone Fixo:</label>
                     <div class="col-sm-10">          
-                        <input class="form-control" type="number" name="telFX" placeholder="Insira o Telefone Fixo">
+                        <input class="form-control" type="text" name="telFX" placeholder="Insira o Telefone Fixo">
                     </div>
                 </div>         
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Telefone Celular:</label>
                     <div class="col-sm-10">          
-                        <input class="form-control" type="number" name="telCel" placeholder="Insira o Celular">
+                        <input class="form-control" type="text" name="telCel" placeholder="Insira o Celular">
                     </div>
                 </div>         
 

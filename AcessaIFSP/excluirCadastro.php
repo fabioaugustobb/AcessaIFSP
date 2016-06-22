@@ -34,13 +34,15 @@ $pront = $_POST['pront'];
     
  <?php
 			if($pront != ''){
-				$dbh->query("DELETE FROM `aluno` WHERE prontuario = '$pront';");
-				$dbh->query("Select * FROM `aluno` WHERE prontuario = '$pront';");	
-				echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Exlcusão realizada com sucesso!</font></c></p>";
-				
-				}else{
-				echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Exlcusão não realizada!</font></c></p>";
-				}
+				$banco = $dbh->query("SELECT * from aluno WHERE nome LIKE '%$pront%' or prontuario = '$pront';");				
+				 if (is_bool($banco->fetchColumn())) {
+                            echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Não existe este cadastro no banco!</font></c></p>";
+                        } else {
+							$dbh->query("DELETE FROM `aluno` WHERE nome LIKE '%$pront%' or prontuario = '$pront';");
+							$dbh->query("Select * FROM `aluno` WHERE prontuario = '$pront';");	
+							echo "<p><c><font face=\"Verdana\" color=\"#FF0000\">Exlcusão realizada com sucesso!</font></c></p>";
+							}
+			}
 ?>                     
       
     </tbody>

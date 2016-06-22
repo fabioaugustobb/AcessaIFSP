@@ -3,6 +3,7 @@ require_once('navBar.php');
 require_once('ConectaBD.php');
 $data_1 = $_GET['data_1'];
 $data_2 = $_GET['data_2'];
+//echo $data_1;
 ?>
 
 <!DOCTYPE html>
