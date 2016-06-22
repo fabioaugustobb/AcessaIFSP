@@ -5,8 +5,8 @@ CREATE TABLE `aluno` (
   `endereco` varchar(200) DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
   `estado` varchar(2) DEFAULT NULL,
-  `telefone` int(11) DEFAULT NULL,
-  `celular` int(11) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `celular` varchar(20) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
   `foto` varchar(300) DEFAULT NULL,
   `cartao` varchar(150) NOT NULL
